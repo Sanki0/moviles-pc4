@@ -21,6 +21,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     Button btnlistarweb,btnagregarweb;
     TextView txtnombre,txtdni,txttelefono,txtcorreo;
+
+    Button btnTipoCliente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnTipoCliente = findViewById(R.id.btnTipoCliente);
+        btnTipoCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TipoCliente.class);
+                startActivity(intent);
+            }
+        });
+
         btnagregarweb = (Button) findViewById(R.id.btnagregarweb);
         btnagregarweb.setOnClickListener(new View.OnClickListener() {
             @Override

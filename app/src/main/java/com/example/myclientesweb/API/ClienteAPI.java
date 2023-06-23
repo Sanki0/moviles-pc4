@@ -2,6 +2,8 @@ package com.example.myclientesweb.API;
 
 import io.reactivex.Observable;
 import com.example.myclientesweb.MODELO.Cliente;
+import com.example.myclientesweb.MODELO.TipoCliente;
+
 import java.util.List;
 
 import retrofit2.http.Body;
@@ -15,4 +17,7 @@ public interface ClienteAPI {
 
     @POST("guardarcliente")
     Call<Cliente> setCliente(@Body Cliente cliente);
+
+    @POST("guardarTipoCliente")
+    Call<TipoCliente> setTipoCliente(@Body TipoCliente tipoCliente);
 }

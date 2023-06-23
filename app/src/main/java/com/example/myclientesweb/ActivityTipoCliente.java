@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.myclientesweb.API.ClienteAPI;
 import com.example.myclientesweb.API.RetrofitCliente;
 import com.example.myclientesweb.MODELO.Cliente;
+import com.example.myclientesweb.MODELO.TipoCliente;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,11 +50,11 @@ public class ActivityTipoCliente extends AppCompatActivity {
                 String detalle = txtDetalle.getText().toString();
 
                 ClienteAPI clienteApi = RetrofitCliente.getInstance().create(ClienteAPI.class);
-                final Cliente cliente = new Cliente(nombre, detalle, "dsad", "sads", "dsa", 0);
-                Call<Cliente> call = clienteApi.setCliente(cliente);
-                call.enqueue(new Callback<Cliente>() {
+                final TipoCliente tipoCliente = new TipoCliente(nombre, detalle, 0);
+                Call<TipoCliente> call = clienteApi.setTipoCliente(tipoCliente);
+                call.enqueue(new Callback<TipoCliente>() {
                     @Override
-                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                    public void onResponse(Call<TipoCliente> call, Response<TipoCliente> response) {
                         if(response.isSuccessful()){
                             Toast.makeText(ActivityTipoCliente.this, "Se ha registrado correctamente", Toast.LENGTH_SHORT).show();
                         }else{
@@ -62,7 +63,7 @@ public class ActivityTipoCliente extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Cliente> call, Throwable t) {
+                    public void onFailure(Call<TipoCliente> call, Throwable t) {
                         Toast.makeText(ActivityTipoCliente.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

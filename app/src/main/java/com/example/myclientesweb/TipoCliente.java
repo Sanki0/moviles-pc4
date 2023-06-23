@@ -7,6 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.myclientesweb.API.ClienteAPI;
+import com.example.myclientesweb.API.RetrofitCliente;
+import com.example.myclientesweb.MODELO.Cliente;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TipoCliente extends AppCompatActivity {
 
@@ -30,6 +39,33 @@ public class TipoCliente extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(TipoCliente.this, ListarTipoCliente.class);
                 startActivity(intent);
+            }
+        });
+
+        btnAgregar.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nombre = txtNombre.getText().toString();
+                String detalle = txtDetalle.getText().toString();
+
+                ClienteAPI clienteApi = RetrofitCliente.getInstance().create(ClienteAPI.class);
+                final Cliente cliente = new Cliente(nombre, detalle, "dsad", "sads", "dsa", 0);
+                Call<Cliente> call = clienteApi.setCliente(cliente);
+                call.enqueue(new Callback<Cliente>() {
+                    @Override
+                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                        if(response.isSuccessful()){
+                            Toast.makeText(TipoCliente.this, "Se ha registrado correctamente", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(TipoCliente.this, "No se ha registrado correctamente", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Cliente> call, Throwable t) {
+                        Toast.makeText(TipoCliente.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

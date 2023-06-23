@@ -17,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TipoCliente extends AppCompatActivity {
+public class ActivityTipoCliente extends AppCompatActivity {
 
     Button btnAgregar, btnModificar, btnEliminar, btnListar;
     TextView txtNombre, txtDetalle;
@@ -37,7 +37,7 @@ public class TipoCliente extends AppCompatActivity {
         btnListar.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TipoCliente.this, ListarTipoCliente.class);
+                Intent intent = new Intent(ActivityTipoCliente.this, ListarTipoCliente.class);
                 startActivity(intent);
             }
         });
@@ -55,15 +55,15 @@ public class TipoCliente extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Cliente> call, Response<Cliente> response) {
                         if(response.isSuccessful()){
-                            Toast.makeText(TipoCliente.this, "Se ha registrado correctamente", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ActivityTipoCliente.this, "Se ha registrado correctamente", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(TipoCliente.this, "No se ha registrado correctamente", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ActivityTipoCliente.this, "No se ha registrado correctamente", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Cliente> call, Throwable t) {
-                        Toast.makeText(TipoCliente.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ActivityTipoCliente.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

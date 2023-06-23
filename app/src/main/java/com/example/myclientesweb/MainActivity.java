@@ -13,7 +13,6 @@ import com.example.myclientesweb.API.ClienteAPI;
 import com.example.myclientesweb.API.RetrofitCliente;
 import com.example.myclientesweb.MODELO.Cliente;
 
-import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnTipoCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TipoCliente.class);
+                Intent intent = new Intent(MainActivity.this, ActivityTipoCliente.class);
                 startActivity(intent);
             }
         });

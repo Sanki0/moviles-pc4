@@ -19,7 +19,7 @@
             android:name=".ListarTipoCliente"
             android:exported="false" />
         <activity
-            android:name=".TipoCliente"
+            android:name=".ActivityTipoCliente"
             android:exported="false" />
         <activity
             android:name=".MainListarclienteweb"

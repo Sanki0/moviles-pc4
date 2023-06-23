@@ -15,6 +15,14 @@ public class TipoCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_cliente);
 
+        btnAgregar = findViewById(R.id.btnAgregar);
+        btnModificar = findViewById(R.id.btnModificar);
+        btnEliminar = findViewById(R.id.btnEliminar);
+        btnListar = findViewById(R.id.btnListar);
 
+        txtNombre = findViewById(R.id.txtNombre);
+        txtDetalle = findViewById(R.id.txtDetalle);
+
+        
     }
 }

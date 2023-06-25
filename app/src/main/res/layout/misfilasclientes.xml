@@ -45,5 +45,36 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="TextView" />
+        <TextView
+            android:id="@+id/txtmiestadoweb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="TextView" />
+        <TextView
+            android:id="@+id/txtmiidtipoclienteweb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="TextView" />
+        <TextView
+            android:id="@+id/txtmiidclienteweb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="TextView" />
+
+        <Button
+            android:id="@+id/btnEditarCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Editar" />
+
+        <Button
+            android:id="@+id/btnEliminarCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eliminar" />
+
     </LinearLayout>
 </LinearLayout>

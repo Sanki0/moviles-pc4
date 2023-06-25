@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txtnombre = (TextView) findViewById(R.id.txtnombre);
-        txtdni = (TextView) findViewById(R.id.txtdni);
-        txttelefono = (TextView) findViewById(R.id.txttelefono);
-        txtcorreo = (TextView) findViewById(R.id.txtcorreo);
-        txtestado = (TextView) findViewById(R.id.txtestado);
-        txtIdTipoCliente = (TextView) findViewById(R.id.txtIdTipoCliente);
+        txtnombre = (TextView) findViewById(R.id.txtnombreCliente);
+        txtdni = (TextView) findViewById(R.id.txtdniCliente);
+        txttelefono = (TextView) findViewById(R.id.txttelefonoCliente);
+        txtcorreo = (TextView) findViewById(R.id.txtcorreoCliente);
+        txtestado = (TextView) findViewById(R.id.txtestadoCliente);
+        txtIdTipoCliente = (TextView) findViewById(R.id.txtIdTipoClienteCliente);
 
         lblInfoIdTipoCliente = (TextView) findViewById(R.id.lblInfoIdTipoCliente);
 

@@ -15,6 +15,11 @@ public class TipoCliente {
         this.idTipoCliente = idTipoCliente;
     }
 
+    public TipoCliente(String nombre, String detalle) {
+        this.nombre = nombre;
+        this.detalle = detalle;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -45,6 +50,21 @@ public class TipoCliente {
                 "nombre='" + nombre + '\'' +
                 ", detalle='" + detalle + '\'' +
                 ", idTipoCliente=" + idTipoCliente +
+                '}';
+    }
+
+    public String toJsonUpdate() {
+        return "{" +
+                "\"nombre\":\"" + nombre + '\"' +
+                ", \"detalle\":\"" + detalle + '\"' +
+                ", \"idTipoCliente\":" + idTipoCliente +
+                '}';
+    }
+
+    public String toJsonCreate() {
+        return "{" +
+                "\"nombre\":\"" + nombre + '\"' +
+                ", \"detalle\":\"" + detalle + '\"' +
                 '}';
     }
 }

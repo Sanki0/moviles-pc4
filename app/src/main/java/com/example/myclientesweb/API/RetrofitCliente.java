@@ -9,7 +9,7 @@ public class RetrofitCliente {
     public static Retrofit getInstance(){
         if(salidaRetrofit==null){
             salidaRetrofit = new Retrofit.Builder()
-                    .baseUrl("https://sesiona.000webhostapp.com/")
+                    .baseUrl("http://44.216.128.157/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();

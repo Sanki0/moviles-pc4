@@ -17,6 +17,14 @@ public class Cliente {
         this.idcliente = idcliente;
     }
 
+    public Cliente(String nombre,String dni,String telefono,String correo,String estado){
+        this.nombre = nombre;
+        this.dni = dni;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.estado = estado;
+    }
+
     public String getNombre() {
         return nombre;
     }

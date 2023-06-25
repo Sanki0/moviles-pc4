@@ -90,13 +90,15 @@ public class MainActivity extends AppCompatActivity {
                 String dni = txtdni.getText().toString();
                 String telefono = txttelefono.getText().toString();
                 String correo = txtcorreo.getText().toString();
+                String estado = txtestado.getText().toString();
+                int idTipoCliente = Integer.parseInt(txtIdTipoCliente.getText().toString());
 
                 ClienteAPI clienteAPI = RetrofitCliente.getInstance().create(ClienteAPI.class);
-                final Cliente cliente = new Cliente(nombre,dni,telefono,correo,"A",0);
-                Call<Cliente> call = clienteAPI.setCliente(cliente);
-                call.enqueue(new Callback<Cliente>() {
+                final Cliente cliente = new Cliente(nombre,dni,telefono,correo,estado,idTipoCliente);
+                Call<Void> call = clienteAPI.setCliente(cliente);
+                call.enqueue(new Callback<Void>() {
                     @Override
-                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                    public void onResponse(Call<Void> call, Response<Void> response) {
                         if(response.isSuccessful()){
                             Toast.makeText(MainActivity.this,"OK",Toast.LENGTH_LONG).show();
                         }else{
@@ -107,9 +109,10 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Cliente> call, Throwable t) {
-                        Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+                    public void onFailure(Call<Void> call, Throwable t) {
+
                     }
+
                 });
                 txtnombre.setText("");
                 txtdni.setText("");

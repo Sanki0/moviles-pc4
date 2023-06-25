@@ -19,13 +19,13 @@ public interface ClienteAPI {
     Observable<List<Cliente>> getClientes();
 
     @POST("cliente")
-    Call<Cliente> setCliente(@Body Cliente cliente);
+    Call<Void> setCliente(@Body Cliente cliente);
 
     @PUT("cliente")
-    Call<Cliente> updateCliente(@Body Cliente cliente);
+    Call<Void> updateCliente(@Body Cliente cliente);
     
     @DELETE("cliente")
-    Call<Cliente> deleteCliente(@Body Cliente cliente);
+    Call<Void> deleteCliente(@Body Cliente cliente);
 
     @GET("tipoClientes")
     Observable<List<TipoCliente>> getTipoClientes();

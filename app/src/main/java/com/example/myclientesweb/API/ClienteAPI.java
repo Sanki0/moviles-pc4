@@ -9,6 +9,7 @@ import java.util.List;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.POST;
 import retrofit2.Call;
 import retrofit2.http.PUT;
@@ -33,9 +34,9 @@ public interface ClienteAPI {
     Call<Void> setTipoCliente(@Body TipoCliente tipoCliente);
 
     @PUT("tipoCliente")
-    void updateTipoCliente(@Body TipoCliente tipoCliente);
+    Call<Void> updateTipoCliente(@Body TipoCliente tipoCliente);
 
-    @DELETE("tipoCliente")
-    void deleteTipoCliente(@Body TipoCliente tipoCliente);
+    @HTTP(method = "DELETE", path = "tipoCliente", hasBody = true)
+    Call<Void> deleteTipoCliente(@Body TipoCliente tipoCliente);
 
 }

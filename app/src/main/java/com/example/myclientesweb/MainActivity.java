@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     for(TipoCliente tipoCliente : tipoClientes){
                         message += tipoCliente.getIdTipoCliente() + " " + tipoCliente.getNombre() + "\t\t\t";
                     }
+                    message= "Info IDTipoCliente \n" + message;
                     lblInfoIdTipoCliente.setText(message);
                 }else{
                     Toast.makeText(MainActivity.this,"Error",Toast.LENGTH_LONG).show();

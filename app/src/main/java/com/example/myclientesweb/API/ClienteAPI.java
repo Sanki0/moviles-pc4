@@ -23,8 +23,8 @@ public interface ClienteAPI {
 
     @PUT("cliente")
     Call<Void> updateCliente(@Body Cliente cliente);
-    
-    @DELETE("cliente")
+
+    @HTTP(method = "DELETE", path = "cliente", hasBody = true)
     Call<Void> deleteCliente(@Body Cliente cliente);
 
     @GET("tipoClientes")

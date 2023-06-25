@@ -6,23 +6,26 @@ public class Cliente {
     private String telefono = "";
     private String correo = "";
     private String estado="";//A I
-    private int idcliente = 0;
+    private int idTipoCliente;
+    private int idcliente;
     public Cliente(){}
-    public Cliente(String nombre,String dni,String telefono,String correo,String estado, int idcliente){
+    public Cliente(String nombre,String dni,String telefono,String correo,String estado, int idTipoCliente, int idcliente){
         this.nombre = nombre;
         this.dni = dni;
         this.telefono = telefono;
         this.correo = correo;
         this.estado = estado;
+        this.idTipoCliente = idTipoCliente;
         this.idcliente = idcliente;
     }
 
-    public Cliente(String nombre,String dni,String telefono,String correo,String estado){
+    public Cliente(String nombre,String dni,String telefono,String correo,String estado, int idTipoCliente){
         this.nombre = nombre;
         this.dni = dni;
         this.telefono = telefono;
         this.correo = correo;
         this.estado = estado;
+        this.idTipoCliente = idTipoCliente;
     }
 
     public String getNombre() {
@@ -71,5 +74,13 @@ public class Cliente {
 
     public void setIdcliente(int idcliente) {
         this.idcliente = idcliente;
+    }
+
+    public int getIdTipoCliente() {
+        return idTipoCliente;
+    }
+
+    public void setIdTipoCliente(int idTipoCliente) {
+        this.idTipoCliente = idTipoCliente;
     }
 }

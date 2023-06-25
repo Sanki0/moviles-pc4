@@ -30,6 +30,9 @@ public interface ClienteAPI {
     @GET("tipoClientes")
     Observable<List<TipoCliente>> getTipoClientes();
 
+    @GET("tipoClientes")
+    Call<List<TipoCliente>> getTipoClientes2();
+
     @POST("tipoCliente")
     Call<Void> setTipoCliente(@Body TipoCliente tipoCliente);
 

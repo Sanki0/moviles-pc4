@@ -19,30 +19,6 @@
         app:layout_constraintVertical_bias="0.696" />
 
     <Button
-        android:id="@+id/btnModificar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="btnModificar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833" />
-
-    <Button
-        android:id="@+id/btnEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="btnEliminar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833" />
-
-    <Button
         android:id="@+id/btnListar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

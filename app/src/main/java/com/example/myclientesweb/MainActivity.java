@@ -12,16 +12,20 @@ import android.widget.Toast;
 import com.example.myclientesweb.API.ClienteAPI;
 import com.example.myclientesweb.API.RetrofitCliente;
 import com.example.myclientesweb.MODELO.Cliente;
+import com.example.myclientesweb.MODELO.TipoCliente;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnlistarweb,btnagregarweb;
-    TextView txtnombre,txtdni,txttelefono,txtcorreo;
+    Button btnAgregarCliente, btnListarCliente, btnTipoCliente;
+    TextView txtnombre,txtdni,txttelefono,txtcorreo, txtestado, txtIdTipoCliente;
 
-    Button btnTipoCliente;
+    TextView lblInfoIdTipoCliente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +34,38 @@ public class MainActivity extends AppCompatActivity {
         txtdni = (TextView) findViewById(R.id.txtdni);
         txttelefono = (TextView) findViewById(R.id.txttelefono);
         txtcorreo = (TextView) findViewById(R.id.txtcorreo);
+        txtestado = (TextView) findViewById(R.id.txtestado);
+        txtIdTipoCliente = (TextView) findViewById(R.id.txtIdTipoCliente);
 
-        btnlistarweb = (Button) findViewById(R.id.btnlistarweb);
-        btnlistarweb.setOnClickListener(new View.OnClickListener() {
+        lblInfoIdTipoCliente = (TextView) findViewById(R.id.lblInfoIdTipoCliente);
+
+        // lblInfoIdTipoCliente will change its content with a message that we will receive from an api call
+        ClienteAPI clienteAPI = RetrofitCliente.getInstance().create(ClienteAPI.class);
+        Call<List<TipoCliente>> call = clienteAPI.getTipoClientes2();
+
+        call.enqueue(new Callback<List<TipoCliente>>() {
+            @Override
+            public void onResponse(Call<List<TipoCliente>> call, Response<List<TipoCliente>> response) {
+                if(response.isSuccessful()){
+                    List<TipoCliente> tipoClientes = response.body();
+                    String message = "";
+                    for(TipoCliente tipoCliente : tipoClientes){
+                        message += tipoCliente.getIdTipoCliente() + " " + tipoCliente.getNombre() + "\t\t\t";
+                    }
+                    lblInfoIdTipoCliente.setText(message);
+                }else{
+                    Toast.makeText(MainActivity.this,"Error",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TipoCliente>> call, Throwable t) {
+                Toast.makeText(MainActivity.this,t.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnListarCliente = (Button) findViewById(R.id.btnlistarweb);
+        btnListarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,MainListarclienteweb.class);
@@ -49,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnagregarweb = (Button) findViewById(R.id.btnagregarweb);
-        btnagregarweb.setOnClickListener(new View.OnClickListener() {
+        btnAgregarCliente = (Button) findViewById(R.id.btnagregarweb);
+        btnAgregarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nombre = txtnombre.getText().toString();

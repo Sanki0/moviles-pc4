@@ -20,7 +20,7 @@ import retrofit2.Response;
 
 public class ActivityTipoCliente extends AppCompatActivity {
 
-    Button btnAgregar, btnModificar, btnEliminar, btnListar;
+    Button btnAgregar, btnListar;
     TextView txtNombre, txtDetalle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,7 @@ public class ActivityTipoCliente extends AppCompatActivity {
         setContentView(R.layout.activity_tipo_cliente);
 
         btnAgregar = findViewById(R.id.btnAgregar);
-        btnModificar = findViewById(R.id.btnModificar);
-        btnEliminar = findViewById(R.id.btnEliminar);
+
         btnListar = findViewById(R.id.btnListar);
 
         txtNombre = findViewById(R.id.txtNombre);
@@ -73,59 +72,6 @@ public class ActivityTipoCliente extends AppCompatActivity {
             }
         });
 
-        // btnModificar.setOnClickListener( new View.OnClickListener() {
-        //     @Override
-        //     public void onClick(View v) {
-        //         String nombre = txtNombre.getText().toString();
-        //         String detalle = txtDetalle.getText().toString();
-
-        //         ClienteAPI clienteApi = RetrofitCliente.getInstance().create(ClienteAPI.class);
-        //         final TipoCliente tipoCliente = new TipoCliente(nombre, detalle, 0);
-        //         Call<TipoCliente> call = clienteApi.updateTipoCliente(tipoCliente);
-        //         call.enqueue(new Callback<TipoCliente>() {
-        //             @Override
-        //             public void onResponse(Call<TipoCliente> call, Response<TipoCliente> response) {
-        //                 if(response.isSuccessful()){
-        //                     Toast.makeText(ActivityTipoCliente.this, "Se ha modificado correctamente", Toast.LENGTH_SHORT).show();
-        //                 }else{
-        //                     Toast.makeText(ActivityTipoCliente.this, "No se ha modificado correctamente", Toast.LENGTH_SHORT).show();
-        //                 }
-        //             }
-
-        //             @Override
-        //             public void onFailure(Call<TipoCliente> call, Throwable t) {
-        //                 Toast.makeText(ActivityTipoCliente.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-        //             }
-        //         });
-        //     }
-        // });
-
-        // btnEliminar.setOnClickListener( new View.OnClickListener() {
-        //     @Override
-        //     public void onClick(View v) {
-        //         String nombre = txtNombre.getText().toString();
-        //         String detalle = txtDetalle.getText().toString();
-
-        //         ClienteAPI clienteApi = RetrofitCliente.getInstance().create(ClienteAPI.class);
-        //         final TipoCliente tipoCliente = new TipoCliente(nombre, detalle, 0);
-        //         Call<TipoCliente> call = clienteApi.deleteTipoCliente(tipoCliente);
-        //         call.enqueue(new Callback<TipoCliente>() {
-        //             @Override
-        //             public void onResponse(Call<TipoCliente> call, Response<TipoCliente> response) {
-        //                 if(response.isSuccessful()){
-        //                     Toast.makeText(ActivityTipoCliente.this, "Se ha eliminado correctamente", Toast.LENGTH_SHORT).show();
-        //                 }else{
-        //                     Toast.makeText(ActivityTipoCliente.this, "No se ha eliminado correctamente", Toast.LENGTH_SHORT).show();
-        //                 }
-        //             }
-
-        //             @Override
-        //             public void onFailure(Call<TipoCliente> call, Throwable t) {
-        //                 Toast.makeText(ActivityTipoCliente.this, "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
-        //             }
-        //         });
-        //     }
-        // });
 
     }
 }
